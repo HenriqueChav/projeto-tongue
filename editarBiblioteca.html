@@ -1,0 +1,33 @@
+<div class="containter-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form id="formEditarBiblioteca" method="POST" action="addLivro.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="formTitulo">Título do Livro</label>
+                        <input type="text" name="titulo" id="formTitulo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="descIngles">Descrição em Inglês</label>
+                        <textarea name="descIngles" id="descIngles" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="descPort">Descrição em Português</label>
+                        <textarea name="descPort" id="descPort" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="formLink">Link para o Gutenberg</label>
+                        <input type="text" name="link" id="formLink" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="formCapa">Imagem da Capa</label>
+                        <input type="file" name="imgCapa" id="formCapa" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-warning form-control" style="margin-top: 2vh">Adicionar Livro</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

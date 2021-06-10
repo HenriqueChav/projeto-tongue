@@ -1,0 +1,15 @@
+create database tongue;
+
+use tongue;
+
+create table usuario (
+id int(3) not null auto_increment primary key,
+nome varchar(15) not null,
+sobrenome varchar(15) not null,
+nascimento date not null,
+nivel_ingles int(1),
+email varchar(30) not null,
+senha varchar(30) not null,
+local_img varchar(75) default 'imagensPerfil/avatarPadrao.png',
+biografia varchar(255) default 'Sua biografia aparecerá aqui.'
+);
