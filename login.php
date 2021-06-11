@@ -26,10 +26,11 @@
             $_SESSION["acimaLimite"] = false; 
 
             if ($resultado["email"] == "admin@admin" && $resultado["senha"] == "masterAdmin987") { // verificando se o usuário é o admin
-                $respostaAJAX = 'Logado como administrador. <script>window.location.replace("indexAdmin.html")</script>';
                 $_SESSION["admin"] = true;
+                $respostaAJAX = 'Logado como administrador. <script>window.location.replace("index.php")</script>';               
             } else {
-                $respostaAJAX = 'Logado com sucesso! <script>window.location.replace("index.html")</script>';
+                $_SESSION["admin"] = false;
+                $respostaAJAX = 'Logado com sucesso! <script>window.location.replace("index.php")</script>';
             }
 
         } else {

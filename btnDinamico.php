@@ -4,8 +4,6 @@ include "startSession.php";
 $retornoAJAX = '';
 
 if ($_SESSION["logado"]) {
-    //Botão Perfil
-    //$retornoAJAX = "<a href='perfil.php'><button class='btn btn-warning'>Perfil</button></a>";
     //Botão Perfil (Imagem)
     $retornoAJAX = "<a href='perfil.php'><img src=". $_SESSION["localImg"] ." id='imgPerfil'></a>";
 } else {

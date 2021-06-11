@@ -3,13 +3,24 @@ create database tongue;
 use tongue;
 
 create table usuario (
-id int(3) not null auto_increment primary key,
-nome varchar(15) not null,
-sobrenome varchar(15) not null,
-nascimento date not null,
-nivel_ingles int(1),
-email varchar(30) not null,
-senha varchar(30) not null,
-local_img varchar(75) default 'imagensPerfil/avatarPadrao.png',
-biografia varchar(255) default 'Sua biografia aparecerá aqui.'
+    id int(4) not null auto_increment primary key,
+    nome varchar(15) not null,
+    sobrenome varchar(15) not null,
+    nascimento date not null,
+    email varchar(30) not null,
+    senha varchar(30) not null,
+    local_img varchar(75) default 'imagensPerfil/avatarPadrao.png',
+    biografia varchar(255) default 'Sua biografia aparecerá aqui.'
 );
+
+insert into usuario (nome, sobrenome, nascimento, email, senha)
+values ("Usuário", "Admin", "1000-01-01", "admin@admin", "masterAdmin987");
+
+create table livro (
+    id int(4) not null auto_increment primary key,
+    titulo varchar(50),
+    desc_ingles text,
+    desc_port text,
+    capa varchar(75),
+    link varchar(75)
+)

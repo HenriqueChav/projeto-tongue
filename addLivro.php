@@ -9,21 +9,27 @@ $capa = $_FILES['imgCapa'];
 $capaNome = $capa["name"];
 $capaNomeTmp = $capa["tmp_name"];
 
-$capaArrNome = explode(".", $capaNome);
-$capaExt = strtolower(end($capaArrNome));
+if (!empty($titulo) && !empty($descIngles) && !empty($descPort) && !empty($link) && !empty($capa)) { // Verificando se há campos vazios.
 
-$capaNomeSalvo = md5($capaNome) . "." .$capaExt;
-$destino = "imagensCapa/$capaNomeSalvo"; 
-move_uploaded_file($capaNomeTmp, $destino);
+    $capaArrNome = explode(".", $capaNome);
+    $capaExt = strtolower(end($capaArrNome));
 
-$comando = $conexao -> prepare("INSERT INTO livro (titulo, desc_ingles, desc_port, capa, link) VALUES (?, ?, ?, ?, ?)");
-$comando -> bindParam(1, $titulo);
-$comando -> bindParam(2, $descIngles);
-$comando -> bindParam(3, $descPort);
-$comando -> bindParam(4, $destino);
-$comando -> bindParam(5, $link);
-$comando -> execute();
+    $capaNomeSalvo = md5($capaNome) . "." .$capaExt;
+    $destino = "imagensCapa/$capaNomeSalvo"; 
+    move_uploaded_file($capaNomeTmp, $destino);
 
-header("Location: editar.html");
+    $comando = $conexao -> prepare("INSERT INTO livro (titulo, desc_ingles, desc_port, capa, link) VALUES (?, ?, ?, ?, ?)");
+    $comando -> bindParam(1, $titulo);
+    $comando -> bindParam(2, $descIngles);
+    $comando -> bindParam(3, $descPort);
+    $comando -> bindParam(4, $destino);
+    $comando -> bindParam(5, $link);
+    $comando -> execute();
+
+    header("Location: editar.php");
+
+} else {
+    header("Location: editar.php?erro=1");
+}
 
 ?>
